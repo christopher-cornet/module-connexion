@@ -9,7 +9,8 @@
 </head>
 <body>
     <section class="login-form">
-        <form action="" method="get">
+        <form action="" method="post">
+            <!-- Login & Password -->
             <input type="text" placeholder="Nom d'utilisateur">
             <input type="password" placeholder="Mot de passe">
             <button class="login">Se connecter</button>

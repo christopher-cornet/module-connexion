@@ -22,6 +22,9 @@ form input {
     padding: 5px;
     margin: 10px;
     text-align: center;
+    border-radius: 10px;
+    border: none;
+    height: 35px;
 }
 
 form button {
@@ -29,10 +32,10 @@ form button {
     margin: 10px;
     background-color: #ffe241;
     height: 30px;
-    width: 10vw;
+    width: 8vw;
     margin-left: auto;
     margin-right: auto;
-    
+    border: 1px solid;
 }
 
 form button:hover {
