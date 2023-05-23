@@ -8,6 +8,7 @@
     <title>Accueil</title>
 </head>
 <body>
+    <!-- Lien vers Inscription / Connexion -->
     <h1>Accueil</h1>
 </body>
 </html>

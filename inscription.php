@@ -1,14 +1,22 @@
 <?php
 session_start();
 
-$host = "localhost";  
-$username = "root";  
-$password = "";  
-$database = "testing"; 
-
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
-$query = "INSERT INTO utilisateurs ('login', 'prenom', 'nom', 'password') VALUES ('')";
+if (isset($_POST['register_name'])) {
+    if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['confirmpassword'])) {
+        echo "User est inscrit.";
+        $username = $_POST['username'];
+        $firstname = $_POST['firstname'];
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+        $query = "INSERT INTO utilisateurs (id, login, prenom, nom, password) VALUES ('', '$username', '$firstname', '$name', '$password')";
+        $db->query($query);
+    }
+    else {
+        echo "Informations manquantes. Vous ne pouvez pas vous inscrire.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,14 +29,14 @@ $query = "INSERT INTO utilisateurs ('login', 'prenom', 'nom', 'password') VALUES
 </head>
 <body>
     <section class="registration-form">
-        <form action="" method="post">
+        <form action="inscription.php" method="post">
             <!-- Password = 8 char / 1 Maj / 1 Min / 1 Number / 1 Spe char -->
-            <input type="text" placeholder="Nom d'utilisateur" required>
-            <input type="text" placeholder="Prenom" required>
-            <input type="text" placeholder="Nom" required>
-            <input type="password" placeholder="Mot de passe" required>
-            <input type="password" placeholder="Confirmation Mot de passe" required>
-            <input class="register" type="submit" value="S'inscrire">
+            <input type="text" placeholder="Nom d'utilisateur*" name="username" required>
+            <input type="text" placeholder="Prenom*" name="firstname" required>
+            <input type="text" placeholder="Nom*" name="name" required>
+            <input type="password" placeholder="Mot de passe*" name="password" required>
+            <input type="password" placeholder="Confirmation mot de passe*" name="confirmpassword" required>
+            <input class="register" type="submit" name="register_name" value="S'inscrire">
         </form>
     </section>
 </body>
