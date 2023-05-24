@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -55,4 +56,31 @@ section {
     margin-right: auto;
     background-color: #86BBD8;
     border-radius: 10px;
+}
+
+header {
+    background-color: #fff;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ol li {
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a {
+    color: #33658A;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+a:hover {
+    transition: 0.3s ease;
+    color: #ffe241;
+    font-weight: bold;
+    font-size: 16px;
 }

@@ -28,11 +28,21 @@ if (isset($_POST['login'])) {
     <title>Connexion</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ol>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">Profil</a></li>
+            </ol>
+        </nav>
+    </header>
     <section class="login-form">
         <form action="" method="post">
             <!-- Login & Password -->
-            <input type="text" placeholder="Nom d'utilisateur">
-            <input type="password" placeholder="Mot de passe">
+            <input type="text" placeholder="Nom d'utilisateur" name="username" required>
+            <input type="password" placeholder="Mot de passe" name="password" required>
             <button class="login" name="connexion">Se connecter</button>
         </form>
     </section>

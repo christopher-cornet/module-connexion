@@ -10,7 +10,7 @@ if (isset($_POST['register_name'])) {
         $firstname = $_POST['firstname'];
         $name = $_POST['name'];
         $password = $_POST['password'];
-        $query = "INSERT INTO utilisateurs (id, login, prenom, nom, password) VALUES ('', '$username', '$firstname', '$name', '$password')";
+        $query = "INSERT INTO user (id, login, firstname, lastname, password) VALUES ('', '$username', '$firstname', '$name', '$password')";
         $db->query($query);
     }
     else {
@@ -28,6 +28,16 @@ if (isset($_POST['register_name'])) {
     <title>Inscription</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ol>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">Profil</a></li>
+            </ol>
+        </nav>
+    </header>
     <section class="registration-form">
         <form action="inscription.php" method="post">
             <!-- Password = 8 char / 1 Maj / 1 Min / 1 Number / 1 Spe char -->
