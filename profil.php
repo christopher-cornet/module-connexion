@@ -8,10 +8,28 @@
     <title>Profil</title>
 </head>
 <body>
-    <form action="" method="get">
-        <input type="text">
-        <input type="password">
-        <button class="login">Login</button>
-    </form>
+    <header>
+        <nav>
+            <ol>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">Profil</a></li>
+            </ol>
+            <!-- <h1></h1> -->
+        </nav>
+    </header>
+    <main>
+        <form action="" method="post">
+            <h1>Informations du compte</h1>
+        </form>
+        <form action="" method="post">
+            <input type="text" placeholder="Modifier le nom d'utilisateur">
+            <input type="text" placeholder="Modifier le prénom">
+            <input type="text" placeholder="Modifier le nom">
+            <input type="password" placeholder="Modifier le mot de passe">
+            <button class="modify">Modifier</button>
+        </form>
+    </main>
 </body>
 </html>

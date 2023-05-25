@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -48,9 +49,9 @@ form p {
     text-align: center;
 }
 
-section {
+main {
     width: 30vw;
-    margin-top: 25vh;
+    margin-top: 30vh;
     margin-left: auto;
     margin-right: auto;
     background-color: #86BBD8;
@@ -82,4 +83,21 @@ a:hover {
     color: #ffe241;
     font-weight: bold;
     font-size: 16px;
+}
+
+.login {
+    padding: 5px;
+    margin: 10px;
+    background-color: #ffe241;
+    height: 30px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 0px;
+}
+
+.login:hover {
+    background-color: #ebd03c;
+    cursor: pointer;
 }

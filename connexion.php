@@ -3,18 +3,26 @@ session_start();
 
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
-if (isset($_POST['login'])) {
-    if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['confirmpassword'])) {
-        echo "User peut s'inscrire";
-        $username = $_POST['username'];
-        $firstname = $_POST['firstname'];
-        $name = $_POST['name'];
+if (isset($_POST['login']) && isset($_POST['password'])) {
+    if (!empty($_POST['user_login']) && !empty($_POST['password'])) {
+        echo "User can login";
+        $user_login = $_POST['user_login'];
         $password = $_POST['password'];
-        $query = "INSERT INTO utilisateurs (id, login, prenom, nom, password) VALUES ('', '$username', '$firstname', '$name', '$password')";
-        $db->query($query);
+        $query = "SELECT login, password FROM user WHERE login = '$user_login' and password = '$password'";
+        $result = $db->prepare($query);
+        $result->execute();
+        if ($result->rowCount() > 0) {
+            $data = $result->fetchAll();
+            if (password_verify($password, $data[0]["password"])) {
+                echo "Connecté";
+                $_SESSION['user_login'] = $user_login;
+            }
+        }
+        // if ($user_login === )
+        // $_SESSION['user'] = 
     }
     else {
-        echo "User ne peut pas s'inscrire...";
+        echo "User can't login...";
     }
 }
 ?>
@@ -38,13 +46,13 @@ if (isset($_POST['login'])) {
             </ol>
         </nav>
     </header>
-    <section class="login-form">
+    <main class="login-form">
         <form action="" method="post">
             <!-- Login & Password -->
-            <input type="text" placeholder="Nom d'utilisateur" name="username" required>
+            <input type="text" placeholder="Nom d'utilisateur" name="user_login" required>
             <input type="password" placeholder="Mot de passe" name="password" required>
-            <button class="login" name="connexion">Se connecter</button>
+            <input class="login" type="submit" name="login" value="Se connecter">
         </form>
-    </section>
+    </main>
 </body>
 </html>
