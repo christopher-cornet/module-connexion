@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,16 @@
     <title>Accueil</title>
 </head>
 <body>
-    <!-- Lien vers Inscription / Connexion -->
+    <header>
+        <nav>
+            <ol>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="profil.php">Profil</a></li>
+            </ol>
+        </nav>
+    </header>
     <h1>Accueil</h1>
 </body>
 </html>

@@ -59,11 +59,12 @@ a:hover {
 main {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     margin-top: 15vh;
     border-radius: 10px;
 }
 
-form h1 {
+h1 {
     text-align: center;
-    color: #f7f7f7;
+    color: #fff;
 }

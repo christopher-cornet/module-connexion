@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,7 @@
         </nav>
     </header>
     <main>
-        <form action="" method="post">
-            <h1>Informations du compte</h1>
-        </form>
+        <h1>Informations du compte</h1>
         <form action="" method="post">
             <input type="text" placeholder="Modifier le nom d'utilisateur">
             <input type="text" placeholder="Modifier le prénom">
