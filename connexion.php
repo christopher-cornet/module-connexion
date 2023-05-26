@@ -3,27 +3,23 @@ session_start();
 
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
-if (isset($_POST['login']) && isset($_POST['password'])) {
-    if (!empty($_POST['user_login']) && !empty($_POST['password'])) {
-        echo "User can login";
+if(ISSET($_POST['login'])){
+    if($_POST['user_login'] != "" || $_POST['password'] != ""){
         $user_login = $_POST['user_login'];
         $password = $_POST['password'];
-        $query = "SELECT login, password FROM user WHERE login = '$user_login' and password = '$password'";
-        $result = $db->prepare($query);
-        $result->execute();
-        if ($result->rowCount() > 0) {
-            $data = $result->fetchAll();
-            if (password_verify($password, $data[0]["password"])) {
-                echo "Connecté";
-                $_SESSION['user_login'] = $user_login;
-            }
+        $sql = "SELECT * FROM user WHERE login=? AND password=? ";
+        $query = $db->prepare($sql);
+        $query->execute(array($user_login,$password));
+        $row = $query->rowCount();
+        $fetch = $query->fetch();
+        if($row > 0) {
+            $_SESSION['user'] = $user_login;
+            header("location: index.php");
         }
-        // if ($user_login === )
-        // $_SESSION['user'] = 
-    }
     else {
-        echo "User can't login...";
+        echo "User can't login";
     }
+}
 }
 ?>
 <!DOCTYPE html>

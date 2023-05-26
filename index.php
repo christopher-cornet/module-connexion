@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if ($_SESSION['user'] !== "") {
+    $name = $_SESSION['user']; 
+}
+
+// $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,6 +28,6 @@
             </ol>
         </nav>
     </header>
-    <h1>Accueil</h1>
+    <h1>Bienvenue <?php echo $name; ?> !</h1>
 </body>
 </html>

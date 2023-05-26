@@ -68,3 +68,20 @@ h1 {
     text-align: center;
     color: #fff;
 }
+
+.modify {
+    padding: 5px;
+    margin: 10px;
+    background-color: #ffe241;
+    height: 30px;
+    width: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 0px;
+}
+
+.modify:hover {
+    background-color: #ebd03c;
+    cursor: pointer;
+}

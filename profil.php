@@ -26,7 +26,7 @@
             <input type="text" placeholder="Modifier le prénom">
             <input type="text" placeholder="Modifier le nom">
             <input type="password" placeholder="Modifier le mot de passe">
-            <button class="modify">Modifier</button>
+            <input class="modify" type="submit" name="modify" value="Modifier">
         </form>
     </main>
 </body>
