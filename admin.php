@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+error_reporting(0);
+
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
 if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {

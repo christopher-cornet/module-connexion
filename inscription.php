@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+error_reporting(0);
+
 if ($_SESSION['user'] !== "") {
     $name = $_SESSION['user']; 
 }
@@ -17,8 +19,8 @@ if (isset($_POST['register_name'])) {
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $number    = preg_match('@[0-9]@', $password);
-        $specialChars = preg_match('@[^\w]@', $password);
-        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+        $special_chars = preg_match('@[^\w]@', $password);
+        if (!$uppercase || !$lowercase || !$number || !$special_chars || strlen($password) < 8) {
             echo 'Le mot de passe doit inclure au moins 1 lettre majuscule, 1 lettre minuscule, 1 nombre, 1 caractère spécial et doit faire au moins 8 caractères.';
         } else {
             $query = "INSERT INTO user (id, login, firstname, lastname, password) VALUES ('', '$user_login', '$firstname', '$lastname', '$password')";
@@ -51,7 +53,7 @@ if (isset($_POST['register_name'])) {
                 <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';} else {echo "";}?>
             </ol>
         </nav>
-        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>
     </header>
     <main>
         <form action="inscription.php" method="post">

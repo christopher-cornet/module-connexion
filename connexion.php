@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+error_reporting(0);
+
 if ($_SESSION['user'] !== "") {
     $name = $_SESSION['user']; 
 }
@@ -46,7 +48,7 @@ if(ISSET($_POST['login'])){
                 <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
-        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>
     </header>
     <main class="login-form">
         <form action="" method="post">

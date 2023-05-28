@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+error_reporting(0);
+
 if ($_SESSION['user'] !== "") {
     $name = $_SESSION['user']; 
 }
@@ -26,12 +28,12 @@ if ($_SESSION['user'] !== "") {
                 <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
-        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>
     </header>
     <main>
         <div class="account">
             <h1>Informations du compte</h1>
-            <h3><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";}?></h3>
+            <h3><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";}?></h3>
         </div>
         <form action="" method="post">
             <input type="text" placeholder="Modifier le nom d'utilisateur">
