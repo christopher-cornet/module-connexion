@@ -2,8 +2,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
 body {
     background-color: #33658A;
+}
+
+table {
+    color: #fff;
+    border-color: #fff;
+    border: none;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #414141;
+}
+
+.test tr th {
+    padding: 12px;
+    text-align: center;
+    background-color: #ffe241;
+    color: rgb(0, 0, 0);
+}
+
+.test tr td {
+    padding: 12px;
+    text-align: center;
+}
+
+header {
+    background-color: #fff;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ol li {
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a {
+    color: #33658A;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+a:hover {
+    transition: 0.3s ease;
+    color: #ffe241;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+h1 {
+    margin-top: 10vh;
+    text-align: center;
+    color: #fff;
+}
+
+h2 {
+    position: absolute;
+    right: 5vw;
+    color: #FF5E5B;
 }

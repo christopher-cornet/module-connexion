@@ -85,3 +85,15 @@ h1 {
     background-color: #ebd03c;
     cursor: pointer;
 }
+
+h2 {
+    position: absolute;
+    right: 5vw;
+    color: #FF5E5B;
+}
+
+h3 {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffe241;
+}

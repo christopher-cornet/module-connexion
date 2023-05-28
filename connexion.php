@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if ($_SESSION['user'] !== "") {
+    $name = $_SESSION['user']; 
+}
+
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
 if(ISSET($_POST['login'])){
@@ -39,8 +43,10 @@ if(ISSET($_POST['login'])){
                 <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
                 <li><a href="profil.php">Profil</a></li>
+                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
     </header>
     <main class="login-form">
         <form action="" method="post">

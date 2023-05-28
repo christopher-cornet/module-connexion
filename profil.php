@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if ($_SESSION['user'] !== "") {
+    $name = $_SESSION['user']; 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,12 +23,16 @@
                 <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
                 <li><a href="profil.php">Profil</a></li>
+                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
-            <!-- <h1></h1> -->
         </nav>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
     </header>
     <main>
-        <h1>Informations du compte</h1>
+        <div class="account">
+            <h1>Informations du compte</h1>
+            <h3><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";}?></h3>
+        </div>
         <form action="" method="post">
             <input type="text" placeholder="Modifier le nom d'utilisateur">
             <input type="text" placeholder="Modifier le prénom">

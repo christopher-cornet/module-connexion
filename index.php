@@ -5,8 +5,6 @@ if ($_SESSION['user'] !== "") {
     $name = $_SESSION['user']; 
 }
 
-// $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,9 +23,11 @@ if ($_SESSION['user'] !== "") {
                 <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
                 <li><a href="profil.php">Profil</a></li>
+                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
     </header>
-    <h1>Bienvenue <?php echo $name; ?> !</h1>
+    <h1>Bienvenue <?php if ($_SESSION['user'] == false) {echo "utilisateur Anonyme"; } else {echo $name;}?> !</h1>
 </body>
 </html>

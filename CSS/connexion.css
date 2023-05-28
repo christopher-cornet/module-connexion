@@ -101,3 +101,9 @@ a:hover {
     background-color: #ebd03c;
     cursor: pointer;
 }
+
+h2 {
+    position: absolute;
+    right: 5vw;
+    color: #FF5E5B;
+}

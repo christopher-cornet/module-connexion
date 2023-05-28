@@ -1,16 +1,30 @@
 <?php
+session_start();
+
+if ($_SESSION['user'] !== "") {
+    $name = $_SESSION['user']; 
+}
+
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
 if (isset($_POST['register_name'])) {
     if (!empty($_POST['user_login']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['password']) && !empty($_POST['confirmpassword'])) {
-        echo "User est inscrit.";
         $user_login = $_POST['user_login'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $password = $_POST['password'];
-        $query = "INSERT INTO user (id, login, firstname, lastname, password) VALUES ('', '$user_login', '$firstname', '$lastname', '$password')";
-        $db->query($query);
-        header('Location: connexion.php');
+        // Check if the password is secure
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+            echo 'Le mot de passe doit inclure au moins 1 lettre majuscule, 1 lettre minuscule, 1 nombre, 1 caractère spécial et doit faire au moins 8 caractères.';
+        } else {
+            $query = "INSERT INTO user (id, login, firstname, lastname, password) VALUES ('', '$user_login', '$firstname', '$lastname', '$password')";
+            $db->query($query);
+            header('Location: connexion.php');
+        }
     }
     else {
         echo "Informations manquantes. Vous ne pouvez pas vous inscrire.";
@@ -34,12 +48,13 @@ if (isset($_POST['register_name'])) {
                 <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
                 <li><a href="profil.php">Profil</a></li>
+                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';} else {echo "";}?>
             </ol>
         </nav>
+        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
     </header>
     <main>
         <form action="inscription.php" method="post">
-            <!-- Password = 8 char / 1 Maj / 1 Min / 1 Number / 1 Spe char -->
             <input type="text" placeholder="Nom d'utilisateur*" name="user_login" required>
             <input type="text" placeholder="Prenom*" name="firstname" required>
             <input type="text" placeholder="Nom*" name="lastname" required>
