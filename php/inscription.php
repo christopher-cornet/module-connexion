@@ -15,6 +15,7 @@ if (isset($_POST['register_name'])) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $password = $_POST['password'];
+        // Preg_match return 1 (True) si le 1er paramètre a été trouvé dans la string (2e paramètre)
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $number    = preg_match('@[0-9]@', $password);

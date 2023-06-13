@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-error_reporting(0);
+// error_reporting(0);
 
 $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
@@ -61,7 +61,7 @@ else {
             <td><?= $row->password; ?></td>
         </tr>
         <?php
-    }
+        }
     }
     ?>
     </table>

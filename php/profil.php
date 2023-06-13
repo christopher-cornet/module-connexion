@@ -7,6 +7,8 @@ if ($_SESSION['user'] !== "") {
     $name = $_SESSION['user']; 
 }
 
+$db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,10 +39,25 @@ if ($_SESSION['user'] !== "") {
             <h3><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";}?></h3>
         </div>
         <form action="" method="post">
-            <input type="text" placeholder="Modifier le nom d'utilisateur">
-            <input type="text" placeholder="Modifier le prénom">
-            <input type="text" placeholder="Modifier le nom">
-            <input type="password" placeholder="Modifier le mot de passe">
+            <?php
+            $sql = "SELECT login, firstname, lastname, password FROM user";
+            $statement = $db->prepare($sql);
+            $statement->execute();
+            $statement->setFetchMode(PDO::FETCH_OBJ);
+            $result = $statement->fetchAll();
+            if($result) {
+                foreach($result as $row) {
+                    $username = $row->login;
+                    $firstname = $row->firstname;
+                    $lastname = $row->lastname;
+                    $password = $row->password;
+                }
+            }
+            ?>
+            <input type="text" placeholder="<?php echo $username ?>" name="username">
+            <input type="text" placeholder=<?php echo $firstname ?>>
+            <input type="text" placeholder=<?php echo $lastname ?>>
+            <input type="password" placeholder=<?php echo $password ?>>
             <input class="modify" type="submit" name="modify" value="Modifier">
         </form>
     </main>

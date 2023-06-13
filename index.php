@@ -26,7 +26,7 @@ if ($_SESSION['user'] !== "") {
                 <li><a href="php/inscription.php">Inscription</a></li>
                 <li><a href="php/connexion.php">Connexion</a></li>
                 <li><a href="php/profil.php">Profil</a></li>
-                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
+                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="php/admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
         <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>

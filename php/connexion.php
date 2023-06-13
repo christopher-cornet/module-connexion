@@ -20,7 +20,7 @@ if(ISSET($_POST['login'])){
         $fetch = $query->fetch();
         if($row > 0) {
             $_SESSION['user'] = $user_login;
-            header("location: index.php");
+            header("location: ../index.php");
         }
     else {
         echo "User can't login";
