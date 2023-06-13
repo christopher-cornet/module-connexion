@@ -39,7 +39,7 @@ if (isset($_POST['register_name'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/inscription.css" type=text/css>
+    <link rel="stylesheet" href="css/inscription.css" type=text/css>
     <title>Inscription</title>
 </head>
 <body>
