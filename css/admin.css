@@ -70,3 +70,23 @@ h2 {
     right: 5vw;
     color: #FF5E5B;
 }
+
+h2:hover {
+    position: absolute;
+    right: 5vw;
+    color: #e04f4c;
+}
+
+.logout {
+    position: absolute;
+    left: 5vw;
+    background-color: #FF5E5B;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #e04f4c;
+    color: #fff;
+}

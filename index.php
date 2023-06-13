@@ -19,12 +19,13 @@ if ($_SESSION['user'] !== "") {
 </head>
 <body>
     <header>
+        <?php if ($_SESSION['user'] == true) {echo '<a href="php/logout.php" class="logout">Se déconnecter</a><br>';} else {echo "";}?>
         <nav>
             <ol>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
-                <li><a href="profil.php">Profil</a></li>
+                <li><a href="php/inscription.php">Inscription</a></li>
+                <li><a href="php/connexion.php">Connexion</a></li>
+                <li><a href="php/profil.php">Profil</a></li>
                 <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';}?>
             </ol>
         </nav>

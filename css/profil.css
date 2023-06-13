@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
 }
 
 body {
@@ -35,6 +36,19 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+header input {
+    position: absolute;
+    left: 5vw;
+    background-color: #FF5E5B;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+header input:hover {
+    background-color: #e04f4c;
 }
 
 nav ol li {
@@ -92,8 +106,28 @@ h2 {
     color: #FF5E5B;
 }
 
+h2:hover {
+    position: absolute;
+    right: 5vw;
+    color: #e04f4c;
+}
+
 h3 {
     margin-top: 10px;
     text-align: center;
     color: #ffe241;
+}
+
+.logout {
+    position: absolute;
+    left: 5vw;
+    background-color: #FF5E5B;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #e04f4c;
+    color: #fff;
 }
