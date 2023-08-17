@@ -2,6 +2,9 @@
 <b> This project is a login module written in PHP. </b> <br>
 It allows users to create an account, modify their information and log in securely. <br>
 
+## Demo
+https://christopher-cornet.students-laplateforme.io/module-connexion/index.php
+
 ## What I learn in this project
 * Create a database <br>
 * Form management <br>
