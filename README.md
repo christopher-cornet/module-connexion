@@ -1,9 +1,17 @@
 # Login module
 <b> This project is a login module written in PHP. </b> <br>
-It allows users to create an account, modify their information and log in securely. <br>
 
 ## Demo
 https://christopher-cornet.students-laplateforme.io/module-connexion/index.php
+
+## Installation
+To run this project, you need to have a web server with PHP and MySQL installed.
+<br><br> You also need to create a database named "moduleconnexion" and import the moduleconnexion.sql file into it. This file contains the schema and some sample data for the project.
+
+To install the project, follow these steps :
+
+* Clone this repository to your web server’s document root directory.
+* Open your web browser and go to http://localhost/module-connexion/index.php (or the corresponding URL for your web server).
 
 ## What I learn in this project
 * Create a database <br>
@@ -21,4 +29,5 @@ https://christopher-cornet.students-laplateforme.io/module-connexion/index.php
 
 ## Screenshots
 ![image](https://github.com/christopher-cornet/module-connexion/assets/115154379/1e7868a6-0022-431a-a463-b929adfc7f0c)
+
 
