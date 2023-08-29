@@ -25,7 +25,7 @@ class User {
         $special_chars = preg_match('@[^\w]@', $password);
         $validEmail = filter_var($this->email, FILTER_VALIDATE_EMAIL);
         
-        // 
+        // If the password passes the security test and if the Email is valid
         if ($uppercase && $lowercase && $numbers && $special_chars && strlen($password) >= 8 && $validEmail) {
             
             // Verify if the email already exists
@@ -44,6 +44,10 @@ class User {
             echo "Ce compte est déjà inscrit.";
             return false;
 
+        }
+        elseif (!$validEmail) {
+            echo "Cet email n'est pas valide.";
+            return false;
         }
         else {
             // If the Password is not safe enough display an Error, else Register the User

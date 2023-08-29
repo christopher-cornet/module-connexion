@@ -23,9 +23,9 @@ if ($_SESSION['user'] !== "") {
         <nav>
             <ol>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="pages/inscription.php">Inscription</a></li>
-                <li><a href="pages/connexion.php">Connexion</a></li>
-                <li><a href="pages/profil.php">Profil</a></li>
+                <li><a href="pages/signup.php">Inscription</a></li>
+                <li><a href="pages/login.php">Connexion</a></li>
+                <li><a href="pages/profile.php">Profil</a></li>
                 <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="pages/admin.php">Admin</a></li>';}?>
             </ol>
         </nav>

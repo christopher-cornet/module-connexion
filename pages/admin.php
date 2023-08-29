@@ -22,19 +22,7 @@ else {
     <title>Admin</title>
 </head>
 <body>
-    <header>
-        <?php if ($_SESSION['user'] == true) {echo '<a href="logout.php" class="logout">Se déconnecter</a><br>';} else {echo "";}?>
-        <nav>
-            <ol>
-                <li><a href="../index.php">Accueil</a></li>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
-                <li><a href="profil.php">Profil</a></li>
-                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="admin.php">Admin</a></li>';} else {echo "";}?>
-            </ol>
-        </nav>
-        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "";} ?></h2>
-    </header>
+    <?php include "../includes/header.php"; ?>
     <h1>Panel Administrateur</h1>
     <table class="test" border=1>
         <tr>

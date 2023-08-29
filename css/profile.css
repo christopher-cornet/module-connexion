@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+}
+
+body {
+    background-color: #33658A;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25vw;
+    padding: 5%;
+    background-color: #86BBD8;
+    border-radius: 10px;
+}
+
+form input {
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    height: 35px;
+}
+
+header {
+    background-color: #fff;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header input {
+    position: absolute;
+    left: 5vw;
+    background-color: #FF5E5B;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+header input:hover {
+    background-color: #e04f4c;
+}
+
+nav ol li {
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a {
+    color: #33658A;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+a:hover {
+    transition: 0.3s ease;
+    color: #ffe241;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15vh;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.modify {
+    padding: 5px;
+    margin: 10px;
+    background-color: #ffe241;
+    height: 30px;
+    width: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 0px;
+}
+
+.modify:hover {
+    background-color: #ebd03c;
+    cursor: pointer;
+}
+
+h2 {
+    position: absolute;
+    right: 5vw;
+    color: #FF5E5B;
+}
+
+h2:hover {
+    position: absolute;
+    right: 5vw;
+    color: #e04f4c;
+}
+
+h3 {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffe241;
+}
+
+.logout {
+    position: absolute;
+    left: 5vw;
+    background-color: #FF5E5B;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: #e04f4c;
+    color: #fff;
+}
