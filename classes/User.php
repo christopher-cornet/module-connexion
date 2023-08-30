@@ -9,35 +9,47 @@ class User {
     public $email;
     private $pdo;
 
-    function __construct($username, $email) {
-        $this->username = $username;
-        $this->email = $email;
+    function __construct() {
         $this->pdo = new Database();
     }
 
     // Register the User
-    public function register($firstname, $lastname, $password) {
+    public function register($username, $email, $firstname, $lastname, $password) {
 
         // Tests the password security by checking if there are characters, special characters, uppercase letters, lowercase letters and numbers
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $numbers = preg_match('@[0-9]@', $password);
         $special_chars = preg_match('@[^\w]@', $password);
-        $validEmail = filter_var($this->email, FILTER_VALIDATE_EMAIL);
+        $validEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
         
         // If the password passes the security test and if the Email is valid
         if ($uppercase && $lowercase && $numbers && $special_chars && strlen($password) >= 8 && $validEmail) {
             
             // Verify if the email already exists
             $query = $this->pdo->db->prepare( "SELECT * FROM users WHERE email = ?" );
-            $query->execute( [$this->email] );
-            $user = $query->fetch();
+            $query->execute( [$email] );
+            $emailExists = $query->fetch();
+
+            // Verify if the username already exists
+            $query = $this->pdo->db->prepare( "SELECT * FROM users WHERE username = ?" );
+            $query->execute( [$username] );
+            $usernameExists = $query->fetch();
             
-            // If the email doesn't exists, add the User to the Database
-            if(empty($user)) {
-                $query = $this->pdo->db->prepare( "INSERT INTO users (username, email, firstname, lastname, password) VALUES (?,?,?,?,?)" );
-                $query->execute( [$this->username, $this->email, $firstname, $lastname, hash("sha256", $password)] );
-                return true;
+            // If the email and the username doesn't exists, add the User to the Database
+            if(empty($emailExists)) {
+
+                if (empty($usernameExists)) {
+
+                    $query = $this->pdo->db->prepare( "INSERT INTO users (username, email, firstname, lastname, password) VALUES (?,?,?,?,?)" );
+                    $query->execute( [$username, $email, $firstname, $lastname, hash("sha256", $password)] );
+                    return true;
+
+                }
+
+                // If the Username already exists, don't register and return false
+                echo "Ce nom d'utilisateur est déjà pris.";
+                return false;
             }
             
             // If the Email already exists, don't register and return false
@@ -58,11 +70,11 @@ class User {
     }
 
     // Log In the User
-    public function connect($password) {
+    public function login($username, $password) {
 
         // Authenticate the User based on the username and password
         $query = $this->pdo->db->prepare( "SELECT * FROM users WHERE username = ? AND password = ?" );
-        $query->execute( [$this->username, hash("sha256", $password)] );
+        $query->execute( [$username, hash("sha256", $password)] );
         $user = $query->fetch();
         
         // If $user contains a value, define session values

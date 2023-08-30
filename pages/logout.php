@@ -3,8 +3,8 @@ session_start();
 
 error_reporting(0);
 
-unset($_SESSION['user']);
+unset($_SESSION['username']);
 
-header('Location: connexion.php');
+header('Location: login.php');
 exit;
 ?>

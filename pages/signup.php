@@ -21,7 +21,7 @@ if ($_SESSION['user'] !== "") {
 <body>
     <?php include "../includes/header.php"; ?>
     <main>
-        <form action="inscription.php" method="post">
+        <form action="signup.php" method="post">
             <input type="text" placeholder="Nom d'utilisateur*" name="username" required>
             <input type="text" placeholder="Email*" name="email" required>
             <input type="text" placeholder="Prenom*" name="firstname" required>
@@ -46,8 +46,9 @@ if ($_SESSION['user'] !== "") {
 
                     // Checks if the Password and the Confirm Password are the same
                     if ($password === $confirmPassword) {
-                        $user = new User($username, $email);
-                        $user->register($firstname, $lastname, $password);
+                        $user = new User();
+                        $user->register($username, $email, $firstname, $lastname, $password);
+                        header("location: login.php");
                     }
                     else {
                         echo 'Le mot de passe et le mot de passe de confirmation doivent être identiques.';

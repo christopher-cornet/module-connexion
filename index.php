@@ -3,8 +3,8 @@ session_start();
 
 error_reporting(0);
 
-if ($_SESSION['user'] !== "") {
-    $name = $_SESSION['user']; 
+if ($_SESSION['username'] !== "") {
+    $name = $_SESSION['username']; 
 }
 
 ?>
@@ -19,18 +19,18 @@ if ($_SESSION['user'] !== "") {
 </head>
 <body>
     <header>
-        <?php if ($_SESSION['user'] == true) {echo '<a href="pages/logout.php" class="logout">Se déconnecter</a><br>';} else {echo "";}?>
+        <?php if ($_SESSION['username'] == true) {echo '<a href="pages/logout.php" class="logout">Se déconnecter</a><br>';} else {echo "";}?>
         <nav>
             <ol>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="pages/signup.php">Inscription</a></li>
                 <li><a href="pages/login.php">Connexion</a></li>
                 <li><a href="pages/profile.php">Profil</a></li>
-                <?php if ($_SESSION['user'] == true && $_SESSION['user'] == 'admin') {echo '<li><a href="pages/admin.php">Admin</a></li>';}?>
+                <?php if ($_SESSION['username'] == true && $_SESSION['username'] == 'admin') {echo '<li><a href="pages/admin.php">Admin</a></li>';}?>
             </ol>
         </nav>
-        <h2><?php if ($_SESSION['user'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>
+        <h2><?php if ($_SESSION['username'] == true) {echo $name;} else {echo "Anonyme";} ?></h2>
     </header>
-    <h1>Bienvenue <?php if ($_SESSION['user'] == false) {echo "utilisateur Anonyme"; } else {echo $name;}?> !</h1>
+    <h1>Bienvenue <?php if ($_SESSION['username'] == false) {echo "utilisateur Anonyme"; } else {echo $name;}?> !</h1>
 </body>
 </html>
