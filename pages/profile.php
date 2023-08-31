@@ -7,7 +7,7 @@ if ($_SESSION['username'] !== "") {
     $name = $_SESSION['username']; 
 }
 
-$db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
+// $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
     <main>
         <div class="account">
             <h1>Informations du compte</h1>
-            <h3><?php if ($_SESSION['username'] == true) {echo $name;} else {echo "Anonyme";}?></h3>
+            <h3><?php if ($_SESSION['username']) {echo $name;} else {echo "Anonyme";}?></h3>
         </div>
         <form action="" method="post">
             <?php
@@ -42,10 +42,10 @@ $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
                 }
             }
             ?>
-            <input type="text" placeholder="<?php if ($_SESSION['username'] == true) {echo $username;} else {echo "Nom d'utilisateur";}?>">
-            <input type="text" placeholder="<?php if ($_SESSION['username'] == true) {echo $firstname;} else {echo "Prénom";}?>">
-            <input type="text" placeholder="<?php if ($_SESSION['username'] == true) {echo $lastname;} else {echo "Nom";}?>">
-            <input type="password" placeholder="<?php if ($_SESSION['username'] == true) {echo $password;} else {echo "Mot de passe";}?>">
+            <input type="text" placeholder="<?php if ($_SESSION['username']) {echo $username;} else {echo "Nom d'utilisateur";}?>">
+            <input type="text" placeholder="<?php if ($_SESSION['username']) {echo $firstname;} else {echo "Prénom";}?>">
+            <input type="text" placeholder="<?php if ($_SESSION['username']) {echo $lastname;} else {echo "Nom";}?>">
+            <input type="password" placeholder="<?php if ($_SESSION['username']) {echo $password;} else {echo "Mot de passe";}?>">
             <input class="modify" type="submit" name="modify" value="Modifier">
         </form>
     </main>

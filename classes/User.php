@@ -82,6 +82,8 @@ class User {
 
             $_SESSION["email"] = $user["email"];
             $_SESSION["username"] = $user["username"];
+            $_SESSION["firstname"] = $user["firstname"];
+            $_SESSION["lastname"] = $user["lastname"];
             
             return true;
 
@@ -95,9 +97,12 @@ class User {
 
     }
 
-    // Edit User's Profile
     public function editProfile($password) {
-
+        $email = $_SESSION["email"];
+        
+        $query = $this->pdo->db->prepare( "SELECT * FROM users WHERE email = ?" );
+        $query->execute( [$email] );
+        $emailExists = $query->fetch();
     }
 }
 
