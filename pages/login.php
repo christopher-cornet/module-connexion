@@ -5,30 +5,6 @@ include "../classes/User.php";
 
 error_reporting(0);
 
-if ($_SESSION['username'] !== "") {
-    $name = $_SESSION['username']; 
-}
-
-// $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
-
-// if(ISSET($_POST['login'])){
-//     if($_POST['user_login'] != "" || $_POST['password'] != ""){
-//         $user_login = $_POST['user_login'];
-//         $password = $_POST['password'];
-//         $sql = "SELECT * FROM user WHERE login=? AND password=? ";
-//         $query = $db->prepare($sql);
-//         $query->execute(array($user_login,$password));
-//         $row = $query->rowCount();
-//         $fetch = $query->fetch();
-//         if($row > 0) {
-//             $_SESSION['user'] = $user_login;
-//             header("location: ../index.php");
-//         }
-//     else {
-//         echo "User can't login";
-//     }
-// }
-// }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
