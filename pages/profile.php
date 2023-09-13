@@ -7,8 +7,6 @@ if ($_SESSION['username'] !== "") {
     $name = $_SESSION['username']; 
 }
 
-// $db = new PDO ('mysql:host=localhost; dbname=moduleconnexion', 'root', '');
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
