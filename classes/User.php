@@ -4,7 +4,6 @@ include "Database.php";
 
 class User {
 
-    public $id;
     public $username;
     public $email;
     private $pdo;
